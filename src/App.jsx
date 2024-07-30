@@ -1,6 +1,7 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import Modal from 'react-modal';
+Modal.setAppElement('#root');
 
 const App = () => {
   const [allData, setAllData] = useState([]);
@@ -17,7 +18,7 @@ const App = () => {
       }
 
       const dataData = await response.json();
-      setAllData(dataData.data.slice(10, 30));
+      setAllData(dataData.data.slice(0, 50));
       setErrorMsg("");
     } catch (error) {
       setErrorMsg(error.message);
@@ -43,6 +44,8 @@ const App = () => {
     <>
       <h1>Fetching Hyrule Equipment API</h1>
 
+      <h3>This is a completed task coded by BCollins</h3>
+
       {errorMsg && <p>{errorMsg}</p>}
 
       <div className="items-grid">
@@ -58,12 +61,13 @@ const App = () => {
         onRequestClose={closeModal} 
         ariaHideApp={false} 
         contentLabel="Item Details"
-        style={{overlay: { backgroundColor: 'rgba(0, 0, 0, 0.75)' }}}
+        className= "modal"
+        overlayClassName="modalBg"
       >
         {selectedItem && (
-          <div style={{ textAlign: 'center' }}>
+          <div>
             <h2>{selectedItem.name}</h2>
-            {selectedItem.image && <img src={selectedItem.image} alt={selectedItem.name} className="modal-image" style={{ maxWidth: '100%', maxHeight: '300px', display: 'block', margin: '20px auto' }} />}
+            {selectedItem.image && <img src={selectedItem.image} alt={selectedItem.name} className="modal-image"/>}
             <p>{selectedItem.description}</p>
             <button onClick={closeModal}>Close</button>
           </div>

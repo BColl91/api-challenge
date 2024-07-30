@@ -7,11 +7,14 @@
 .items-grid {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 10px;
 }
 
 .item-card {
-  border: 1px solid #ccc;
+  margin-top: 10px;
+  border: 1px solid #125702;
+  border-radius: 5px;
   padding: 10px;
   cursor: pointer;
   transition: background-color 0.3s;
@@ -19,11 +22,11 @@
 }
 
 .item-card:hover {
-  background-color: #f0f0f0;
+  background-color: #03fff7;
 }
 
 .ReactModal__Overlay {
-  background-color: rgba(0, 0, 0, 0.75) !important;
+  background-color: rgba(1, 31, 8, 0.671) !important;
 }
 
 .ReactModal__Content {
@@ -35,8 +38,9 @@
   margin-right: -50%;
   transform: translate(-50%, -50%);
   padding: 20px;
+  border: 1px solid greenyellow;
   border-radius: 10px;
-  background: white;
+  background: rgb(1, 53, 14);
   max-width: 500px;
   width: 100%;
   text-align: center;
@@ -47,4 +51,13 @@
   max-height: 300px;
   display: block;
   margin: 20px auto;
+}
+
+.modalBg {
+  background-color: rgba(63, 56, 56, 0.595);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
